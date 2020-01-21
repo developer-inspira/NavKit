@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NavKit
 
 class ViewController: UIViewController, CustomizableNavigation, UIGestureRecognizerDelegate {
     var barBackgroundColor: UIColor = .white
