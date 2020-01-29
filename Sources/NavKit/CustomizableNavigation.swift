@@ -36,6 +36,10 @@ public protocol CustomizableNavigation {
     /// the right of the back button's image.
     var backText: String? { get }
 
+    /// Specify this property to enlarge back button width frame
+    /// the right of the back button's image.
+    var backInset: UIEdgeInsets? { get }
+
     /// Specify this property to determine whether or not the screen could be
     /// dragged from left to right to go to the previous screen.
     var isUsingInteractivePopGesture: Bool { get }
@@ -54,6 +58,7 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
     var titleFont: UIFont { return .systemFont(ofSize: 17) }
     var backImage: UIImage? { return nil }
     var backText: String? { return nil }
+    var backInset: UIEdgeInsets? { return .zero }
     var isUsingInteractivePopGesture: Bool { return true }
 
     func updateNavigation() {
@@ -91,6 +96,7 @@ public extension CustomizableNavigation where Self: UIViewController, Self: UIGe
         if let backImage = backImage {
             let imageButtonFrame = CGRect(x: 0, y: 0, width: backImage.size.width, height: backImage.size.height)
             let imageButton = UIButton(frame: imageButtonFrame)
+            imageButton.contentEdgeInsets = backInset ?? .zero
             imageButton.setImage(backImage, for: .normal)
             imageButton.addTarget(self, action: #selector(backTapped(_:)), for: .touchUpInside)
 

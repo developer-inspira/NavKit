@@ -13,7 +13,9 @@ class MoreTableViewController: UITableViewController, CustomizableNavigation, UI
     // MARK: - Navigation Config
 
     var barBackgroundColor: UIColor = UIColor.cyan.withAlphaComponent(0)
-    var backText: String? = "<-- Go back"
+    // var backText: String? = "<-- Go back"
+    var backImage: UIImage? { return #imageLiteral(resourceName: "Back") }
+    var backInset: UIEdgeInsets? { return .init(top: 5, left: 10, bottom: 5, right: 10) }
 
     // MARK: - Life Cycles
 
